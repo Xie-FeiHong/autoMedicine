@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.nexuslink.mapper.PrescriptionMapper">
+    <resultMap id="prescription" type="PrescriptionDO">
+        <id property="id" column="id"/>
+        <result property="disease" column="disease"/>
+        <result property="isUserDefined" column="is_user_defined"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+
+
+    <insert id="addPrescription" parameterType="PrescriptionDO">
+        INSERT INTO prescription(disease, is_user_defined, gmt_create, gmt_modified)
+        VALUES (#{disease}, #{isUserDefined}, #{gmtCreate}, #{gmtModified})
+    </insert>
+
+    <select id="getPrescriptionId" parameterType="PrescriptionDO" resultType="Long">
+        select id from prescription where disease = #{disease} and  gmt_create = #{gmtCreate}
+    </select>
+
+    <select id="getPrescriptionIdByDisease" resultType="Long">
+        select id from prescription where disease = #{disease} and is_user_defined = 0
+    </select>
+
+    <update id="updatePrice" >
+        UPDATE prescription set price = #{price} where id = #{id}
+    </update>
+
+    <select id="getPrice" resultType="Double">
+        select price from prescription where id = #{id}
+    </select>
+
+</mapper>

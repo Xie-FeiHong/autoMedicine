@@ -1,0 +1,17 @@
+2018-12-24 16:58:57.418 ERROR 14804 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level 'info;' for 'null'
+2018-12-24 16:58:57.706  WARN 14804 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/H:/maven/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/H:/maven/repository/org/json/json/20171018/json-20171018.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2018-12-24 16:58:57.813  INFO 14804 --- [main] c.n.controller.MedicineControllerTest    : Starting MedicineControllerTest on PC-20170617FQFR with PID 14804 (started by xfh in F:\JAVAProject\NMID\autoMedicine)
+2018-12-24 16:58:57.815  INFO 14804 --- [main] c.n.controller.MedicineControllerTest    : No active profile set, falling back to default profiles: default
+2018-12-24 16:59:02.012  INFO 14804 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-24 16:59:03.152  INFO 14804 --- [main] c.n.controller.MedicineControllerTest    : Started MedicineControllerTest in 6.36 seconds (JVM running for 8.027)
+2018-12-24 16:59:03.411  INFO 14804 --- [main] c.n.controller.MedicineController        : 输出信息
+2018-12-24 16:59:03.412 ERROR 14804 --- [main] c.n.controller.MedicineController        : 错误信息
+2018-12-24 16:59:03.427  INFO 14804 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

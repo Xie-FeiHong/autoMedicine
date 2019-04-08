@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.nexuslink.mapper.UserMapper">
+
+    <resultMap id="userDO" type="UserDO">
+        <id property="id" column="id"/>
+        <result property="tele" column="tele"/>
+        <result property="userName" column="user_name"/>
+        <result property="picUrl" column="pic_url"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+    <select id="getUser" parameterType="String" resultMap="userDO">
+        select user_name, tele, pwd from user where tele = #{tele}
+    </select>
+
+    <insert id="insertUser" parameterType="UserDO">
+        insert into user(tele, pwd, user_name, gmt_create, gmt_modified)
+        values (#{tele}, #{pwd}, #{userName}, #{gmtCreate}, #{gmtModified})
+    </insert>
+
+    <update id="updateUserPic" >
+        update user set pic_url = #{picUrl} where tele = #{tele}
+    </update>
+
+    <select id="getUserPic" parameterType="String" resultType="String">
+        SELECT  pic_url from user WHERE tele = #{tele}
+    </select>
+
+    <update id="updatePassword" parameterType="String">
+        UPDATE user set pwd = #{newPassword} where tele = #{tele}
+    </update>
+
+
+    <update id="updateUserName" parameterType="String">
+        UPDATE user set user_name = #{newName} where tele = #{tele}
+    </update>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.nexuslink.mapper.UserMapper">
+
+    <!--<resultMap id="excel" type="Excel">-->
+        <!--<id property="id" column="id"/>-->
+        <!--<result property="shellId" column="shell_id"/>-->
+    <!--</resultMap>-->
+    <!---->
+
+    <!--<select id="selectShellId" resultMap="excel" parameterType="String">-->
+        <!--select id,shell_id from excel where shell_id = #{shellId}-->
+    <!--</select>-->
+
+    <!--<select id="selectCount" resultType="Integer" >-->
+        <!--select shell_id from excel limit 0,#{len}-->
+    <!--</select>-->
+
+    <!--<select id="getShellIdList" resultType="List" parameterType="Integer">-->
+        <!--select  from excel-->
+    <!--</select>-->
+
+</mapper>

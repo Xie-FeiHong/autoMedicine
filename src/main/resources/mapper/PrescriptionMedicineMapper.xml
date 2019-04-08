@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.nexuslink.mapper.PrescriptionMedicineMapper">
+
+    <resultMap id="prescriptionMedicine" type="cn.nexuslink.pojo.PrescriptionMedicineDO">
+        <id property="id" column="id"/>
+        <result property="medicineId" column="medicine_id"/>
+        <result property="prescriptionId" column="prescription_id"/>
+        <result property="weight" column="weight"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+    <insert id="insertPrescriptionMedicines" parameterType="java.util.ArrayList">
+        insert into prescription_medicine(medicine_id, prescription_id, weight, gmt_create, gmt_modified) VALUES
+        <foreach collection="list" item="PrescriptionMedicineDO" index="index" separator=",">
+            (#{PrescriptionMedicineDO.medicineId},
+            #{PrescriptionMedicineDO.prescriptionId},
+            #{PrescriptionMedicineDO.weight},
+            #{PrescriptionMedicineDO.gmtCreate},
+            #{PrescriptionMedicineDO.gmtModified}
+            )
+        </foreach>
+    </insert>
+
+    <select id="getMedicineIds" parameterType="Long" resultMap="prescriptionMedicine">
+        select medicine_id, weight from prescription_medicine where prescription_id = #{prescriptionId}
+    </select>
+
+</mapper>

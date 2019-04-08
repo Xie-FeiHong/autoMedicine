@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.nexuslink.mapper.MedicineMapper">
+    <resultMap id="medicine" type="MedicineDO">
+        <id property="id" column="id"/>
+        <result property="medicineName" column="medicine_name"/>
+        <result property="medicinePic" column="medicine_pic"/>
+        <result property="intro" column="intro"/>
+        <result property="notice" column="notice"/>
+        <result property="price" column="price"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+    <select id="getMedicineList" resultMap="medicine">
+        select  medicine_name, medicine_pic, intro, notice FROM medicine
+    </select>
+
+    <select id="getId" resultType="Long">
+        select id from medicine where medicine_name = #{name}
+    </select>
+
+    <select id="getMedicineByName" resultMap="medicine">
+        select id, price from medicine where medicine_name = #{medicineName}
+    </select>
+
+    <select id="getName"  resultType="String">
+        select medicine_name from medicine where id = #{id}
+    </select>
+
+</mapper>
